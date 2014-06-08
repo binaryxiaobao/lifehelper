@@ -4,7 +4,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <TextView android:id="@+id/"/>
+    <TextView android:id="@+id/index_letter"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@android:color/background_dark"
+        android:text="A"
+        android:background="@android:color/darker_gray"
+        android:paddingLeft="15dp"/>
+    
+    <GridView android:id="@+id/city"
+        android:numColumns="3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
     
 
 </LinearLayout>

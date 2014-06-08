@@ -5,6 +5,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.graphics.drawable.ColorDrawable;
@@ -255,7 +256,9 @@ public class WeatherMainAct extends Activity implements OnDismissListener, OnCli
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		popwindow.showAsDropDown(v);
+		//popwindow.showAsDropDown(v);
+		
+		startActivity(new Intent(WeatherMainAct.this,ChooseCityActivity.class));
 		
 	}
 

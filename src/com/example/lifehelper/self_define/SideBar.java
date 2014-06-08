@@ -26,6 +26,11 @@ public class SideBar extends View {
 			"J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
 			"W", "X", "Y", "Z", "#" };
 
+	
+	public void setCenterDialog(TextView centerDialog){
+		this.mCenterDialog = centerDialog;
+	}
+	
 	public SideBar(Context context) {
 		super(context);
 	}
@@ -36,10 +41,6 @@ public class SideBar extends View {
 
 	public SideBar(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-	}
-	
-	public void setCenterDialog(TextView centerDialog){
-		this.mCenterDialog = centerDialog;
 	}
 	
 	@Override
@@ -88,14 +89,15 @@ public class SideBar extends View {
 
 		default:
 			setBackgroundResource(R.drawable.sidebar_background);
-			if (num != oldChoose) {
-				if (num >= 0 && num < mAlp.length) {
+			if (num != oldChoose) {System.out.println("------->num != oldChoose");
+				if (num >= 0 && num < mAlp.length) {System.out.println("------->num >= 0 && num < mAlp.length");
 					if (null != listener) {
 						listener.onTouchingLetterChanged(mAlp[num]);
 					}
 					if (null != mCenterDialog) {
+						System.out.println("------->"+mAlp[num]);
 						mCenterDialog.setText(mAlp[num]);
-						mCenterDialog.setVisibility(VISIBLE);
+						mCenterDialog.setVisibility(View.VISIBLE);
 					}
 				}
 				mChoose = num;
@@ -105,7 +107,7 @@ public class SideBar extends View {
 			break;
 		}
 		
-		return super.dispatchTouchEvent(event);
+		return true;
 	}
 	
 	public void setOnTouchingLetterChangedListener(OnTouchingLetterChangedListener onTouchingLetterChangedListener){
