@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="        此项为用户扩展工能，用户可以根据自己的需求需要定制什么样的有自己个性的功能，请联系QQ：804427832，请注明：来自360"
+        android:background="@drawable/txt_btn_selector"
+        android:layout_margin="10dp"/>
+    
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="专属于你的app"
+        android:textSize="30px"
+        android:textColor="#FF6347"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30px"/>
+    
+
+</LinearLayout>

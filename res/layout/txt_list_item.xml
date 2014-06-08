@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        >
+        
+        <ImageView android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/everydaydetail_weatherdetail"
+            android:layout_gravity="center"
+            />
+
+        <TextView
+            android:id="@+id/txtTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+           	android:typeface="sans"
+            android:textSize="18sp"/>
+
+       <!--  <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent" 
+            android:layout_weight="1"
+            android:background="@drawable/txt_list_selector"
+            android:focusable="true"
+            android:clickable="true"
+            android:gravity="right"
+            android:layout_marginRight="5dp">
+
+            <ImageView
+                android:id="@+id/txtMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:background="@drawable/skin_ic_btn_toggle_menu"
+                android:layout_gravity="bottom"/>
+        </LinearLayout> -->
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/txtLl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#8A8A8A"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+    </LinearLayout>
+
+</LinearLayout>

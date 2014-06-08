@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/express_ll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal" 
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:focusable="true" >
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:ems="10"
+            android:hint="请输入订单号"
+            android:singleLine="true"
+            android:background="@drawable/txt_btn_selector2"
+            android:layout_marginLeft="10dp" >
+
+            <requestFocus />
+        </EditText>
+
+        <LinearLayout
+            android:id="@+id/ex_ll"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/search_cancel"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/txt_btn_selector2"
+                android:text="取消"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Spinner
+        android:id="@+id/expressSpin"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center" 
+        android:background="@drawable/txt_btn_selector2"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:layout_weight="1"/>
+    
+    <EditText
+        android:gravity="top"
+        android:padding="5dp"
+        	android:layout_weight="6"
+            android:id="@+id/display_express"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:ems="10"
+            android:hint="详细信息"
+            android:singleLine="false"
+            android:background="@drawable/txt_btn_selector2" 
+            android:editable="false"
+            android:layout_margin="5dp"
+            >
+
+            <requestFocus />
+        </EditText>
+
+</LinearLayout>

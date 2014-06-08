@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#32CD32"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_title_back_default_1"
+            android:contentDescription="@string/app_name" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="编辑"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+     <EditText
+         android:id="@+id/content"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="8"
+         android:gravity="top"
+         android:lines="3"
+         android:lineSpacingMultiplier="1.2"
+         >
+
+         <requestFocus />
+     </EditText>
+     
+     <LinearLayout 
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="1"
+         android:orientation="horizontal">
+         
+         <Button android:id="@+id/cancel"
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+             android:text="取消"
+             android:background="@drawable/txt_btn_selector2"
+             android:layout_margin="5dp"/>
+         
+         <Button android:id="@+id/save"
+             android:layout_width="0dp"
+             android:layout_height="match_parent"
+             android:layout_weight="1"
+             android:text="保存"
+             android:background="@drawable/txt_btn_selector"
+             android:layout_margin="5dp"
+             />
+         
+     </LinearLayout>
+    
+
+</LinearLayout>
