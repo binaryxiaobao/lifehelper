@@ -13,10 +13,12 @@
         android:background="@android:color/darker_gray"
         android:paddingLeft="15dp"/>
     
-    <GridView android:id="@+id/city"
+    <com.example.lifehelper.self_define.MyCityGridView 
+        android:id="@+id/city"
         android:numColumns="3"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"/>
-    
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        />
 
 </LinearLayout>
