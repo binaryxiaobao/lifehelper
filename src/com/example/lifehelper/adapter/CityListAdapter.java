@@ -46,7 +46,7 @@ public class CityListAdapter extends BaseAdapter implements SectionIndexer{
 			{"银川","雅安","延安","延边","盐城","阳江","阳泉","扬州","烟台","宜宾","宜昌","宜春","营口","益阳","永州","岳阳","榆林","运城","云浮","玉树","玉溪","玉林"},
 			{"中山"},};
 	//private ViewHolder mHolder;
-	private CityGridAdapter adapter;
+	//private CityGridAdapter adapter;
 	
 	public CityListAdapter(Context context) {
 		mContext = context;
@@ -69,21 +69,21 @@ public class CityListAdapter extends BaseAdapter implements SectionIndexer{
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup arg2) {
-		ViewHolder mHolder = null;
-		adapter = new CityGridAdapter(mContext, cityName[position]);
+		ViewHolder mHolder;
+		
 		if (convertView == null) {
 			convertView = LayoutInflater.from(mContext).inflate(R.layout.city_list, null);
-		}
-		if (null == mHolder) {
 			mHolder = new ViewHolder();
+			mHolder.adapter = new CityGridAdapter(mContext);
 			mHolder.indexLetter = (TextView) convertView.findViewById(R.id.index_letter);
 			mHolder.gridView = (GridView) convertView.findViewById(R.id.city);
 			convertView.setTag(mHolder);
 		}else {
 			mHolder = (ViewHolder) convertView.getTag();
 		}
+		mHolder.adapter.setData(cityName[position]);
 		mHolder.indexLetter.setText(mIndex[position]);
-		mHolder.gridView.setAdapter(adapter);
+		mHolder.gridView.setAdapter(mHolder.adapter);
 		
 		return convertView;
 	}
@@ -91,17 +91,16 @@ public class CityListAdapter extends BaseAdapter implements SectionIndexer{
 	private static class ViewHolder{
 		TextView indexLetter;
 		GridView gridView;
+		CityGridAdapter adapter;
 	}
 
 	@Override
-	public int getPositionForSection(int arg0) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getPositionForSection(int position) {
+		return position;
 	}
 
 	@Override
 	public int getSectionForPosition(int arg0) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

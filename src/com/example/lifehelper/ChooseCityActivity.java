@@ -36,7 +36,8 @@ public class ChooseCityActivity extends Activity implements OnTouchingLetterChan
 
 	@Override
 	public void onTouchingLetterChanged(String s) {
-		
+		int position = s.toCharArray()[0] - 'A';
+		cityList.setSelection(position);
 	}
 
 }

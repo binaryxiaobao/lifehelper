@@ -12,8 +12,12 @@ public class CityGridAdapter extends BaseAdapter {
 	private Context mContext;
 	private String[] mCityName;
 
-	public CityGridAdapter(Context context, String[] cityName) {
+	public CityGridAdapter(Context context) {
 		this.mContext = context;
+		
+	}
+	
+	public void setData (String[] cityName) {
 		this.mCityName = cityName;
 	}
 
