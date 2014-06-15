@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -24,7 +25,10 @@ import android.widget.PopupWindow.OnDismissListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lifehelper.adapter.CityListAdapter;
 import com.example.lifehelper.adapter.PopupAdapter;
+import com.example.lifehelper.db.DBHelper;
+import com.example.lifehelper.db.DBManager;
 import com.example.lifehelper.net.DownloadWeatherJson;
 import com.example.lifehelper.self_define.MyPopupWindow;
 
@@ -120,6 +124,7 @@ public class WeatherMainAct extends Activity implements OnDismissListener, OnCli
 		temp = sp.getString("temp", "20°~12°");
 		wind = sp.getString("wind", "2013年8月22日\n哈哈哈");
 		weather = sp.getString("weather", "雨");
+		cityStr = sp.getString("city", "北京");
 		
 		tempTv.setText(temp);
 		detailTv.setText(wind);
@@ -173,12 +178,12 @@ public class WeatherMainAct extends Activity implements OnDismissListener, OnCli
 	protected void onResume() {
 
 		super.onResume();
-
+		cityStr = CityListAdapter.mChoosedCity;
+		cityTv.setText(cityStr);
+		
 		if (isNetWorkOpen()) {
 			System.out.println("---->可用");
 			getWeatherJson();
-			
-			
 		} else {
 			initWeatherInfo();
 
@@ -196,7 +201,19 @@ public class WeatherMainAct extends Activity implements OnDismissListener, OnCli
 			@Override
 			public void run() {
 				JSONObject jsObj;
+				String sql = "select * from city_table where CITY =" + "'"
+						+ cityStr + "'" + ";";
 				try {
+					DBManager manager = new DBManager(WeatherMainAct.this);
+					manager.copyDatabase();
+					DBHelper helper = new DBHelper(WeatherMainAct.this);
+					Cursor cursor = helper.getWritableDatabase().rawQuery(sql, null);
+					if (cursor!=null) {
+						cursor.moveToFirst();
+						System.out.println("cityStr---->"+cityStr);
+						cityId = cursor.getString(cursor.getColumnIndex("WEATHER_ID"));
+					}
+					cursor.close();
 					
 					jsObj = new JSONObject((new DownloadWeatherJson()).loadMessage(url+cityId+".html"));
 					jsObj = jsObj.getJSONObject("weatherinfo");

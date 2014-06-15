@@ -4,10 +4,15 @@ import java.util.ArrayList;
 
 import com.example.lifehelper.R;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.SectionIndexer;
@@ -45,6 +50,8 @@ public class CityListAdapter extends BaseAdapter implements SectionIndexer{
 			{"厦门","西安","西宁","襄樊","湘潭","湘西","咸宁","咸阳","孝感","邢台","新乡","信阳","新余","忻州","西双版纳","宣城","许昌","徐州","香港","锡林郭勒","兴安"},
 			{"银川","雅安","延安","延边","盐城","阳江","阳泉","扬州","烟台","宜宾","宜昌","宜春","营口","益阳","永州","岳阳","榆林","运城","云浮","玉树","玉溪","玉林"},
 			{"中山"},};
+	
+	public static String mChoosedCity = "北京";
 	//private ViewHolder mHolder;
 	//private CityGridAdapter adapter;
 	
@@ -68,7 +75,7 @@ public class CityListAdapter extends BaseAdapter implements SectionIndexer{
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup arg2) {
+	public View getView(final int position, View convertView, ViewGroup arg2) {
 		ViewHolder mHolder;
 		
 		if (convertView == null) {
@@ -84,6 +91,19 @@ public class CityListAdapter extends BaseAdapter implements SectionIndexer{
 		mHolder.adapter.setData(cityName[position]);
 		mHolder.indexLetter.setText(mIndex[position]);
 		mHolder.gridView.setAdapter(mHolder.adapter);
+		mHolder.gridView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				mChoosedCity = cityName[position][arg2];
+				SharedPreferences sp = mContext.getSharedPreferences("weatherLast", mContext.MODE_PRIVATE);
+				Editor editor = sp.edit();
+				editor.putString("city", mChoosedCity);
+				editor.commit();
+				((Activity)mContext).finish();
+			}
+		});
 		
 		return convertView;
 	}

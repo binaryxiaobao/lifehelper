@@ -7,6 +7,15 @@
     <FrameLayout android:layout_width="fill_parent"
         android:layout_height="fill_parent">
         
+        <TextView android:id="@+id/pinned_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="@android:color/background_dark"
+        android:background="@android:color/darker_gray"
+        android:paddingLeft="15dp"
+        android:visibility="invisible"/>
+        
         <ListView android:id="@+id/city_list"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">

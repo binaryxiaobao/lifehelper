@@ -15,6 +15,7 @@ public class ChooseCityActivity extends Activity implements OnTouchingLetterChan
 	private ListView cityList;
 	private CityListAdapter adapter;
 	private TextView dialog;
+	private TextView mPinnedHeader;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class ChooseCityActivity extends Activity implements OnTouchingLetterChan
 	}
 	
 	public void initViews(){
+		mPinnedHeader = (TextView) findViewById(R.id.pinned_header);
 		sidebar = (SideBar) findViewById(R.id.sidebar);
 		dialog = (TextView) findViewById(R.id.text_choose);
 		sidebar.setCenterDialog(dialog);
@@ -32,6 +34,7 @@ public class ChooseCityActivity extends Activity implements OnTouchingLetterChan
 		cityList.setAdapter(adapter);
 		
 		sidebar.setOnTouchingLetterChangedListener(this);
+		
 	}
 
 	@Override
