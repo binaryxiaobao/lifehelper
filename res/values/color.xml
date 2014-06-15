@@ -2,5 +2,6 @@
 <resources>
     <color name="on">#ADFF2F</color>
     <color name="off">#ff7f00</color>
+    <color name="grey"> #ebebeb</color>
     
 </resources>

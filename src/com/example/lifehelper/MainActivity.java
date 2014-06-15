@@ -187,7 +187,7 @@ public class MainActivity extends Activity implements OnItemClickListener,
 					}
 				}));
 
-		entries.add(new MyItemEntry("其他设置", R.drawable.shezhi,
+		entries.add(new MyItemEntry("地图导航", R.drawable.map_btn_location_up_boy,
 				new MyItemClickListener() {
 
 					@Override

@@ -12,5 +12,12 @@
 	<string name="Fri">五</string>
 	<string name="Sat">六</string>
 	<string name="Sun">日</string>
+	<string name="gpsfollow">追随</string>
+    <string name="gpslocate">定位</string>
+    <string name="gpsrotate">旋转</string>
+    <string name="error_network">搜索失败,请检查网络连接！</string>
+    <string name="error_key">key验证无效！</string>
+    <string name="error_other">未知错误，请稍后重试!错误码为</string>
+    <string name="no_result">对不起，没有搜索到相关数据！</string>
 
 </resources>
