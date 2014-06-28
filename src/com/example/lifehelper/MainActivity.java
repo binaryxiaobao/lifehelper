@@ -196,12 +196,12 @@ public class MainActivity extends Activity implements OnItemClickListener,
 					}
 				}));
 
-		entries.add(new MyItemEntry("关于作者", R.drawable.about,
+		entries.add(new MyItemEntry("社交互联", R.drawable.about,
 				new MyItemClickListener() {
 
 					@Override
 					public void onPerfom() {
-						startActivity(new Intent(MainActivity.this,AboutMainAct.class));
+						startActivity(new Intent(MainActivity.this,Login.class));
 					}
 				}));
 

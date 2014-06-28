@@ -4,6 +4,7 @@
     <string name="app_name">i生活</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
+    <string name="login_tips">请选择登陆方式：</string>
     
     <string name="Mon">一</string>
 	<string name="Tue">二</string>
